@@ -170,9 +170,9 @@ else:
     if st.session_state.data_uploaded_check:
         pass
     else:
-        st.session_state.df_house = pd.read_csv(smart_open('s3://400_households.csv'))
-        st.session_state.df_product = pd.read_csv(smart_open('s3://400_products.csv'))
-        st.session_state.df_transaction = pd.read_csv(smart_open('s3://400_transactions.csv'))
+        st.session_state.df_house = pd.read_csv(smart_open('s3://mytreamlitbucket/400_households.csv'))
+        st.session_state.df_product = pd.read_csv(smart_open('s3://mytreamlitbucket/400_products.csv'))
+        st.session_state.df_transaction = pd.read_csv(smart_open('s3://mytreamlitbucket/400_transactions.csv'))
 
         st.session_state.df_transaction_house = pd.merge(st.session_state.df_transaction, st.session_state.df_house, on='HSHD_NUM')
         st.session_state.df_thp = pd.merge(st.session_state.df_transaction_house, st.session_state.df_product, on='PRODUCT_NUM')
